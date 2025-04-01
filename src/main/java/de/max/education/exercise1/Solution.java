@@ -21,7 +21,7 @@ public class Solution {
         InetSocketAddress port = new InetSocketAddress(8080);
         HttpServer server = SimpleFileServer.createFileServer(port, Path.of("").toAbsolutePath(), SimpleFileServer.OutputLevel.INFO);
         var handler = SimpleFileServer.createFileHandler(Path.of("src/main/resources").toAbsolutePath());
-        server.createContext("/subpath", handler);
+        server.createContext("/workshop", handler);
         server.start();
     }
 
