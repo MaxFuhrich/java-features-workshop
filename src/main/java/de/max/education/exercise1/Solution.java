@@ -1,31 +1,30 @@
 package de.max.education.exercise1;
 
-import com.sun.net.httpserver.Headers;
-import com.sun.net.httpserver.HttpHandlers;
-import com.sun.net.httpserver.HttpServer;
-import com.sun.net.httpserver.SimpleFileServer;
+import com.sun.net.httpserver.*;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.file.Path;
 
-public class Solution {
+public class Solution implements ExerciseInterface {
 
-    public static void startServer() {
+    public HttpServer startServer() {
         InetSocketAddress port = new InetSocketAddress(8080);
         HttpServer server = SimpleFileServer.createFileServer(port, Path.of("").toAbsolutePath(), SimpleFileServer.OutputLevel.INFO);
         server.start();
+        return server;
     }
 
-    public static void startServerWithHandler() {
+    public HttpServer startServerWithHandler() {
         InetSocketAddress port = new InetSocketAddress(8080);
         HttpServer server = SimpleFileServer.createFileServer(port, Path.of("").toAbsolutePath(), SimpleFileServer.OutputLevel.INFO);
         var handler = SimpleFileServer.createFileHandler(Path.of("src/main/resources").toAbsolutePath());
         server.createContext("/workshop", handler);
         server.start();
+        return server;
     }
 
-    public static void startServerWithCustomHandler() {
+    public void startServerWithCustomHandler() {
         InetSocketAddress port = new InetSocketAddress(8080);
         var putHandler = HttpHandlers.of(200, Headers.of("X-method", "PUT"), "Custom PUT body");
         var failureHandler = HttpHandlers.of(501, Headers.of("X-method", "not GET/PUT"), "Request method not covered by handler");
