@@ -1,6 +1,7 @@
 package de.max.education.exercise2.records;
 
-public record Dog(String name, String knownTricks) implements Animal{
+public record Bird(String name) implements Animal{
+
     @Override
     public String getName() {
         return name;

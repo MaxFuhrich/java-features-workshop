@@ -1,32 +1,16 @@
 package de.max.education.exercise1;
 
-import com.sun.net.httpserver.HttpServer;
-import com.sun.net.httpserver.SimpleFileServer;
-
-import java.net.InetSocketAddress;
-import java.nio.file.Path;
+/*
+Exercise 1: Simple Webservers
+The tasks are described in the class Exercise. The solution can be found in the class Solution. Additionally, you can
+create a Solution object instead of Exercise to see it in action.
+ */
 
 public class Main {
     public static void main(String[] args) {
-        //Solution.startServerWithHandler();
+        ExerciseInterface exercise = new Exercise();
+        exercise.startServer();
+        //exercise.startServerWithHandler();
     }
 
-    /*
-    create and start a simple fileserver, serving the contents of this repository
-    afterwards, access it (through the browser) on 127.0.0.1
-     */
-    public static void startServer() {
-
-    }
-
-    /*
-    again, create a simple fileserver. this time, create and add a fileHandler that serves the files in
-    src/main/resources for GET requests to "/workshop"
-     */
-    public static void startServerWithHandler() {
-
-    }
-
-    //public static void startServerWithCustomHandler()
-    //TODO: check if this is really a new feature
 }
