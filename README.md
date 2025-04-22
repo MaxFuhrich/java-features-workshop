@@ -1,6 +1,7 @@
 # Java 21 Features Workshop
 
 This repository covers the new (finalized) features of Java 21 coming from Java 17. Also, this repository serves as a workshop containing examples and exercises for each new feature.
+The different exercises can be found in src/main/java/de.max.education/.
 - [Java 21 Features Workshop](#java-21-features-workshop)
   - [Overview of new Features](#overview-of-new-features)
   - [Default charset UTF-8 (JEP 400)](#default-charset-utf-8-jep-400)
@@ -41,7 +42,7 @@ This repository covers the new (finalized) features of Java 21 coming from Java 
 
 - Key Encapsulation Mechanism (JEP 452)
 
-    JEP 452 introdues an API for key encapsulation mechanism (KEM), which is an encription technique for encrinpting and securing symmetric key by making use of public key cryptography.
+    JEP 452 introduces an API for key encapsulation mechanism (KEM), which is an encryption technique for encrypting and securing symmetric key by making use of public key cryptography.
 
 ## Default charset UTF-8 (JEP 400)
 
@@ -113,7 +114,7 @@ static double length(Object o){
 
 ## Pattern Matching for switch (JEP 441)
 
-Pattern matching for switch adds upon the pattern matching added in Java 16 (JEP 394). With pattern matching for switch you can do the instanceof opteration followed by an object cast and allocation in a simpler, more convenient expression.
+Pattern matching for switch adds upon the pattern matching added in Java 16 (JEP 394). With pattern matching for switch you can do the instanceof operation followed by an object cast and allocation in a simpler, more convenient expression.
 
 With JEP 441, the operations for pattern matching (JEP 394) and record patterns (JEP 440) can be done in switch statements:
 
@@ -148,7 +149,7 @@ static String formatterPatternSwitch(Object obj) {
 }
 ```
 
-> **_NOTE:_** Be aware that a case might never be reached if a case checking for a supertype comes before. For example, if you check if its of type Number before checking if it's an Integer will never reach the second case. This is called dominance of case labels, where the Number case label dominates the Interger case label.
+> **_NOTE:_** Be aware that a case might never be reached if a case checking for a supertype comes before. For example, if you check if its of type Number before checking if it's an Integer will never reach the second case. This is called dominance of case labels, where the Number case label dominates the Integer case label.
 
 All of this suggests a simple, predictable, and readable ordering of case labels in which the constant case labels should appear before the guarded pattern case labels, and those should appear before the unguarded pattern case labels:
 
@@ -280,9 +281,5 @@ The hierarchy of the interfaces, including the new ones can be seen here:
 
 ## Key Encapsulation Mechanism (JEP 452)
 
-- way of exchanging symmetric keys through private/public key algorithms
-- increases security
-- other alternatives:
-
-JEP 452 adds an API for key encapsulation mechanisms (KEMs), which is an encription technique for securing symmetric key using public key cryptography. This enables applications to use KEM algorithms like RSA-KEM and Elliptic Curve Integrated Encryption Scheme and inclues an implementation of the Diffie-Hellman KEM.
+JEP 452 adds an API for key encapsulation mechanisms (KEMs), which is an encryption technique for securing symmetric key using public key cryptography. This enables applications to use KEM algorithms like RSA-KEM and Elliptic Curve Integrated Encryption Scheme and includes an implementation of the Diffie-Hellman KEM.
 KEMs are candidates for the next generation of standard public key cryptography algorithms, also providing proper defense against quantum attacks.
